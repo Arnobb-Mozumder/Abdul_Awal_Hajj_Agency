@@ -1,11 +1,13 @@
 import express from 'express';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 import { GoogleGenAI } from '@google/genai';
 import dotenv from 'dotenv';
 import { createServer as createViteServer } from 'vite';
-import { connectDB } from './config/db.js';
+import { connectDB, getIsMongoConnected } from './config/db.js';
 import apiRouter from './routes/api.js';
+import Upload from './models/Upload.js';
 
 dotenv.config();
 
@@ -24,6 +26,39 @@ async function startServer() {
 
   // Serve uploaded files statically
   const uploadsPath = path.resolve(__dirname, 'uploads');
+  
+  // Custom middleware to restore missing/deleted files from MongoDB
+  app.get('/uploads/:filename', async (req, res, next) => {
+    try {
+      const filename = req.params.filename;
+      const localPath = path.join(uploadsPath, filename);
+
+      // If file exists on local disk, serve it directly
+      if (fs.existsSync(localPath)) {
+        return res.sendFile(localPath);
+      }
+
+      // Try to restore from MongoDB if connected
+      if (getIsMongoConnected()) {
+        const fileDoc = await Upload.findOne({ filename });
+        if (fileDoc) {
+          // Ensure uploads directory exists
+          if (!fs.existsSync(uploadsPath)) {
+            fs.mkdirSync(uploadsPath, { recursive: true });
+          }
+          // Recreate the file locally
+          const buffer = Buffer.from(fileDoc.data, 'base64');
+          fs.writeFileSync(localPath, buffer);
+          console.log(`🔄 [Restore] Successfully restored missing file ${filename} from MongoDB.`);
+          return res.sendFile(localPath);
+        }
+      }
+    } catch (err) {
+      console.error('Error in uploads restoration middleware:', err);
+    }
+    next();
+  });
+
   app.use('/uploads', express.static(uploadsPath));
 
   // Initialize Gemini Client
