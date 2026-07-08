@@ -1,0 +1,896 @@
+/* Core CSS Variables and Design System */
+:root {
+    --primary-blue: #0f223f;
+    --secondary-blue: #183059;
+    --accent-gold: #C5A85C;
+    --accent-gold-dark: #a88944;
+    --accent-gold-light: #fbf9f4;
+    --accent-green: #0d5c3a;
+    --accent-green-dark: #073f27;
+    --accent-green-light: #f1f8f4;
+    --bg-light: #fcfdfe;
+    --text-dark: #2a2e35;
+    --text-light: #f8f9fa;
+    --text-muted: #6e7782;
+    --border-color: #e5ebf2;
+    --shadow-sm: 0 4px 12px rgba(15, 34, 63, 0.04);
+    --shadow-md: 0 8px 24px rgba(15, 34, 63, 0.08);
+    --shadow-lg: 0 16px 40px rgba(15, 34, 63, 0.12);
+    --font-ser-bengali: 'Noto Serif Bengali', serif;
+    --font-sans: 'Inter', sans-serif;
+    --font-title: 'Outfit', sans-serif;
+    --font-amiri: 'Amiri', serif;
+}
+
+/* Base Styles */
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Bengali Typography Overrides */
+.Bengali-serif {
+    font-family: var(--font-ser-bengali);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-title), var(--font-ser-bengali);
+    color: var(--primary-blue);
+}
+
+.text-accent-gold {
+    color: var(--accent-gold) !important;
+}
+
+.text-accent-green {
+    color: var(--accent-green) !important;
+}
+
+.bg-gold-light {
+    background-color: var(--accent-gold-light);
+}
+
+/* FIX: .bg-gold was used throughout the markup (announcement badge, pledge
+   numbered badges, about-experience card, dividers) but was never defined,
+   so those elements had a transparent background. On dark sections this left
+   dark text sitting directly on a dark background (invisible). */
+.bg-gold {
+    background-color: var(--accent-gold) !important;
+}
+
+/* FIX: referenced on location-section icon wrappers but never defined. */
+.text-dark-blue {
+    color: var(--primary-blue) !important;
+}
+
+/* FIX: second WhatsApp floating button referenced this to be visually
+   distinct from the first; give it its own shade. */
+.bg-success-custom {
+    background-color: var(--accent-green) !important;
+}
+
+.bg-light-accent {
+    background-color: #f7f9fc;
+}
+
+.max-width-600 {
+    max-width: 600px;
+}
+
+.max-width-800 {
+    max-width: 800px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary-blue);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-green);
+}
+
+/* Top Info Bar */
+.top-info-bar {
+    background-color: var(--primary-blue);
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-bottom: 2px solid var(--accent-gold);
+}
+
+.top-info-bar .admin-btn {
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 2px 10px;
+    border-radius: 20px;
+}
+
+.top-info-bar .admin-btn:hover {
+    background-color: var(--accent-gold);
+    color: var(--primary-blue) !important;
+    border-color: var(--accent-gold);
+}
+
+/* Navigation */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+/* ==========================================
+   Wider layout for full-bleed chrome sections
+   Bootstrap's .container steps to fixed max-widths
+   (540/720/960/1140/1320px) which leaves large empty
+   margins on wide screens. For the navbar, announcement
+   bar, hero and footer we let the container use much more
+   of the viewport, while keeping their own padding small
+   so the logo/nav/footer content sit close to the edges.
+   The regular content sections (about, packages, pledge,
+   location, contact) keep the original comfortable
+   .container width for readability.
+   ========================================== */
+.navbar > .container,
+.announcement-bar .container,
+.hero-section .container,
+footer.bg-dark-blue .container {
+    max-width: 1600px;
+    padding-left: clamp(14px, 3vw, 48px);
+    padding-right: clamp(14px, 3vw, 48px);
+}
+
+.agency-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+}
+
+.border-gold {
+    border: 2px solid var(--accent-gold) !important;
+}
+
+.brand-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    font-family: var(--font-ser-bengali);
+    line-height: 1.2;
+}
+
+.brand-subtitle {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    font-family: var(--font-ser-bengali);
+}
+
+.nav-link {
+    font-weight: 600;
+    color: var(--primary-blue) !important;
+    font-size: 0.95rem;
+    border-bottom: 2px solid transparent;
+    transition: all 0.25s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--accent-green) !important;
+    border-bottom-color: var(--accent-green);
+}
+
+/* Announcement Bar */
+.announcement-bar {
+    background-color: var(--accent-green);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 -5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.announcement-badge {
+    font-size: 0.8rem;
+    font-weight: 700;
+    background-color: var(--accent-gold);
+    color: var(--primary-blue) !important;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.marquee-container {
+    white-space: nowrap;
+    position: relative;
+}
+
+.marquee-text {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 25s linear infinite;
+    font-weight: 600;
+    font-size: 0.95rem;
+    font-family: var(--font-ser-bengali);
+}
+
+@keyframes marquee {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+}
+
+.animate-bell {
+    animation: bell-ring 1.5s ease infinite;
+}
+
+@keyframes bell-ring {
+    0%, 100% { transform: rotate(0); }
+    15%, 45% { transform: rotate(15deg); }
+    30%, 60% { transform: rotate(-15deg); }
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 80vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: clamp(50px, 8vw, 100px) 0;
+    overflow: hidden;
+}
+
+.geometric-pattern-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(var(--accent-gold) 0.5px, transparent 0.5px), radial-gradient(var(--accent-gold) 0.5px, transparent 0.5px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    opacity: 0.08;
+    pointer-events: none;
+}
+
+.agent-photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 18px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.agent-photo-wrapper:hover .agent-photo {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 575.98px) {
+    .agent-photo {
+        width: 120px;
+        height: 120px;
+        border-radius: 16px;
+    }
+}
+
+.agent-name {
+    color: #fbf9f4 !important; /* Premium offwhite cream color */
+}
+
+.divider-pattern {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+}
+
+.divider-pattern .line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: var(--accent-gold);
+}
+
+.hero-slogan {
+    font-size: clamp(1rem, 3vw, 1rem);
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.5px;
+}
+
+.btn-gold {
+    background-color: var(--accent-gold);
+    color: var(--primary-blue) !important;
+    border: 1px solid var(--accent-gold);
+    transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+    background-color: var(--accent-gold-dark);
+    border-color: var(--accent-gold-dark);
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(197, 168, 92, 0.3);
+}
+
+.btn-outline-white {
+    color: white;
+    border: 2px solid white;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-white:hover {
+    background-color: white;
+    color: var(--primary-blue) !important;
+    transform: translateY(-2px);
+}
+
+.btn-success-custom {
+    background-color: var(--primary-blue);
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold) !important;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-success-custom:hover {
+    background-color: var(--accent-gold);
+    color: var(--primary-blue) !important;
+    transform: translateY(-2px);
+}
+
+.btn-whatsapp-custom {
+    background-color: #25d366;
+    color: white !important;
+    font-weight: 600;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp-custom:hover {
+    background-color: #1ebd58;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+/* Sections Common styling */
+.section-badge {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background-color: var(--accent-green-light);
+    padding: 6px 16px;
+    border-radius: 30px;
+}
+
+.section-title {
+    color: var(--primary-blue);
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+    letter-spacing: 0.5px;
+}
+
+/* About Section */
+.about-image-wrapper {
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.about-experience {
+    border: 4px solid white !important;
+}
+
+/* Packages Section Cards */
+.nav-pills .nav-link {
+    background-color: #f0f4f8;
+    color: var(--primary-blue) !important;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+}
+
+.nav-pills .nav-link.active {
+    background-color: var(--accent-green) !important;
+    color: white !important;
+    border-color: var(--accent-green);
+}
+
+.package-card {
+    border: 1px solid var(--border-color);
+    background-color: white;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+/* FIX: the packages row relied on Bootstrap's default flex
+   align-items: stretch, so every column in the same row was stretched to
+   match whichever card's collapse panel happened to be open — making
+   the OTHER cards look taller too, even though only one had content
+   showing. align-items-start (also added in the HTML) lets each column
+   size to its own content so only the clicked card grows. */
+#hajjPackagesList.row,
+#umrahPackagesList.row {
+    align-items: flex-start;
+}
+
+.package-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-gold);
+}
+
+.package-header {
+    background-color: var(--primary-blue);
+    color: white;
+    border-bottom: 3px solid var(--accent-gold);
+}
+
+.package-price {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--accent-gold);
+    font-family: var(--font-title), var(--font-sans);
+}
+
+.package-price-sm {
+    font-size: clamp(1.3rem, 4vw, 1.6rem);
+}
+
+.package-card-compact {
+    font-size: 0.95rem;
+}
+
+/* FIX: the "আরও দেখুন" (view details) button used Bootstrap's
+   .btn-outline-light, which is white text on a transparent background —
+   invisible against the white package body it sits on. Give it its own
+   readable style: dark text on a light cream background, always visible,
+   with a gold accent border and a smooth hover state. */
+.btn-view-details {
+    background-color: #F8F1E5;
+    color: var(--primary-blue) !important;
+    border: 1px solid var(--accent-gold);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-view-details i {
+    transition: transform 0.3s ease;
+}
+
+.btn-view-details:hover,
+.btn-view-details:focus {
+    background-color: var(--accent-gold);
+    color: var(--primary-blue) !important;
+    border-color: var(--accent-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(197, 168, 92, 0.25);
+}
+
+/* Flip the chevron when the details panel is open (Bootstrap toggles
+   aria-expanded on the trigger button automatically) */
+.btn-view-details[aria-expanded="true"] i {
+    transform: rotate(180deg);
+}
+
+@media (max-width: 575.98px) {
+    .package-card {
+        border-radius: 14px;
+    }
+    .package-header {
+        padding: 1rem !important;
+    }
+}
+
+.package-details-table th {
+    font-weight: 600;
+    color: var(--primary-blue);
+    background-color: #f7f9fc;
+    width: 35%;
+}
+
+.package-details-table td {
+    color: var(--text-dark);
+}
+
+.btn-green {
+    background-color: var(--accent-green);
+    color: white !important;
+    transition: all 0.3s ease;
+}
+
+.btn-green:hover {
+    background-color: var(--accent-green-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(13, 92, 58, 0.3);
+}
+
+.package-notes {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+/* Interest Form */
+.bg-dark-blue {
+    background-color: var(--primary-blue);
+}
+
+.text-light-gray {
+    color: #cbd5e1 !important;
+}
+
+.border-light-navy {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.check-accent:checked {
+    background-color: var(--accent-green);
+    border-color: var(--accent-green);
+}
+
+/* Pledge section styling */
+.bg-white-opacity {
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Location maps */
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    filter: grayscale(10%) contrast(100%);
+}
+
+/* Give the two office cards ("পরামর্শক ও এজেন্ট অফিস" / "মূল কাফেলা অফিস")
+   more breathing room between them: a wider gutter on large screens, and
+   each card pulled in slightly (and centered) so it doesn't touch the
+   gutter edge. Both cards shrink by the same amount, so sizing stays equal. */
+.location-section .card {
+    max-width: 94%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 992px) {
+    .location-section .row {
+        --bs-gutter-x: 3.5rem;
+    }
+}
+
+/* Footer styling */
+.footer-logo {
+    border: 2px solid var(--accent-gold);
+}
+
+.footer-links a {
+    transition: all 0.25s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent-gold) !important;
+    padding-left: 4px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.bg-light-navy {
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
+.social-icon:hover {
+    background-color: var(--accent-gold);
+    color: var(--primary-blue) !important;
+    transform: translateY(-3px);
+}
+
+/* Floating Actions */
+.floating-actions {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+}
+
+.wa-float-btn, .gmail-float-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    color: white !important;
+    font-size: 1.6rem;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.wa-float-btn {
+    background-color: #25d366;
+}
+
+.wa-float-btn:hover {
+    background-color: #1ebd58;
+    transform: scale(1.1);
+}
+
+.gmail-float-btn {
+    background-color: #ea4335;
+}
+
+.gmail-float-btn:hover {
+    background-color: #d33828;
+    transform: scale(1.1);
+}
+
+/* Labels stay hidden by default on every screen size and only reveal on
+   hover (desktop/mouse) or tap (touch, via the .show-label class toggled
+   in script.js). This keeps the floating stack compact until the user
+   actually wants to see what each button is. */
+.floating-actions .label {
+    position: absolute;
+    right: 65px;
+    background-color: var(--primary-blue);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(6px);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+}
+
+.floating-actions a:hover .label,
+.floating-actions a:focus .label,
+.floating-actions a.show-label .label {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-2px);
+}
+
+/* On very small screens the labels sit a touch closer / smaller so the
+   floating stack doesn't crowd the viewport width when revealed. */
+@media (max-width: 480px) {
+    .floating-actions .label {
+        right: 58px;
+        font-size: 0.72rem;
+    }
+}
+
+/* Admin Sidebar Control panel Overlay */
+.admin-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(15, 34, 63, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 1050;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+.admin-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.admin-sidebar {
+    position: absolute;
+    top: 0;
+    right: -420px;
+    width: 420px;
+    height: 100%;
+    background-color: white;
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-overlay.show .admin-sidebar {
+    right: 0;
+}
+
+.admin-controls-wrapper {
+    height: calc(100vh - 60px);
+}
+
+@media (max-width: 480px) {
+    .admin-sidebar {
+        width: 100%;
+        right: -100%;
+    }
+}
+
+.inquiry-card {
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 15px;
+    transition: all 0.25s ease;
+}
+
+.inquiry-card.contacted {
+    border-left: 4px solid var(--accent-green);
+    background-color: var(--accent-green-light);
+}
+
+.inquiry-card.new {
+    border-left: 4px solid #ea4335;
+}
+
+.inquiry-card:hover {
+    box-shadow: var(--shadow-sm);
+}
+
+/* ==========================================
+   Full Responsive System
+   Breakpoints: small phones (<576px), phones (576-767px),
+   tablets (768-991px), laptops (992-1199px), desktops (1200-1399px),
+   ultra-wide (1400px+)
+   ========================================== */
+
+/* Prevent any accidental horizontal scroll from full-bleed elements */
+body, .container, .container-fluid {
+    max-width: 100%;
+}
+
+img, svg, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Ultra-wide screens: cap content width so lines/cards don't stretch too thin */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1280px;
+    }
+    /* Hero keeps a slightly wider cap than regular content sections so the
+       centered agent card doesn't stretch edge-to-edge, but it's still wider
+       than before so the section doesn't look empty on ultrawide screens. */
+    .hero-section .container {
+        max-width: 1320px;
+    }
+}
+
+/* Laptops / small desktops */
+@media (max-width: 1199.98px) {
+    .section-title {
+        font-size: clamp(1.4rem, 3vw, 2rem);
+    }
+}
+
+/* Tablets */
+@media (max-width: 991.98px) {
+    .hero-slogan {
+        font-size: clamp(1.2rem, 2.8vw, 1.5rem);
+    }
+    .section-title {
+        font-size: clamp(1.3rem, 3vw, 1.8rem);
+    }
+    .info-items span {
+        font-size: 0.75rem;
+    }
+    .package-card {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Medium & small phones */
+@media (max-width: 767.98px) {
+    .hero-section {
+        padding: clamp(40px, 10vw, 60px) 0;
+        min-height: auto;
+    }
+    footer.bg-dark-blue {
+        padding-top: 2.5rem !important;
+    }
+    section.py-5 {
+        padding-top: 2.5rem !important;
+        padding-bottom: 2.5rem !important;
+    }
+    .hero-btns, .hero-call-btns {
+        flex-direction: column;
+        width: 100%;
+    }
+    .hero-btns a, .hero-call-btns a {
+        width: 100%;
+        text-align: center;
+    }
+    /* Top Info Bar Mobile Polish */
+    .top-info-bar {
+        position: relative;
+        padding-right: 48px !important; /* Make room for the absolute circular admin icon */
+    }
+    .top-info-bar .admin-btn {
+        position: absolute;
+        top: 50%;
+        right: 12px;
+        transform: translateY(-50%);
+        padding: 0 !important;
+        border-radius: 50% !important;
+        width: 32px;
+        height: 32px;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--accent-gold) !important;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    .top-info-bar .admin-btn span {
+        display: none !important; /* Strictly no writings on mobile */
+    }
+    .top-info-bar .info-items {
+        display: flex;
+        flex-direction: column !important; /* Stack phone and email vertically to fit perfectly */
+        align-items: flex-start !important;
+        gap: 2px !important;
+        font-size: 0.74rem !important;
+    }
+    .brand-title {
+        font-size: 1.05rem;
+    }
+    .brand-subtitle {
+        font-size: 0.58rem;
+    }
+    .floating-actions {
+        bottom: 20px;
+        right: 20px;
+    }
+    .wa-float-btn, .gmail-float-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1.4rem;
+    }
+    .marquee-text {
+        font-size: 0.85rem;
+    }
+    .package-details-table th {
+        width: 45%;
+    }
+}
+
+/* Small phones (narrow, e.g. 320-400px wide) */
+@media (max-width: 400px) {
+    .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    .hero-slogan {
+        font-size: 1.05rem;
+    }
+    .agency-logo {
+        width: 38px;
+        height: 38px;
+    }
+    .announcement-badge span {
+        display: none;
+    }
+    .btn-gold, .btn-outline-white, .btn-success-custom, .btn-whatsapp-custom {
+        font-size: 0.9rem;
+    }
+}

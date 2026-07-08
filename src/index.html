@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আল কারীম হজ্জ কাফেলা - নির্ভরযোগ্য হজ্জ ও ওমরাহ এজেন্সি</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+Bengali:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom CSS gets injected by Webpack, but we import style.css in script.js -->
+</head>
+<body>
+
+    <!-- Top Info Bar (Static Contact Info & Admin Quick Link) -->
+    <div class="top-info-bar py-2 text-white">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-3 info-items">
+                <span><i class="fa-solid fa-phone me-1 text-accent-gold"></i> <span class="phone-display-1">01917713580</span></span>
+                <span><i class="fa-solid fa-envelope me-1 text-accent-gold"></i> <span class="email-display">abdulawalcvs@gmail.com</span></span>
+                <span class="d-none d-md-inline"><i class="fa-solid fa-certificate me-1 text-accent-gold"></i> লাইসেন্স নং: ১৪৮৯</span>
+            </div>
+            <div>
+                <a href="#admin-section" class="text-white text-decoration-none admin-btn" id="adminLoginBtn">
+                    <i class="fa-solid fa-user-shield me-1 text-accent-gold"></i> অ্যাডমিন প্যানেল
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-white navbar-light shadow-sm py-2">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="../static/logo.jpg" alt="Logo" class="agency-logo me-2 rounded-circle border border-gold" id="logoDisplay">
+                <div>
+                    <h1 class="brand-title mb-0" id="agencyNameDisplay">আল কারীম হজ্জ কাফেলা</h1>
+                    <small class="brand-subtitle text-muted d-block" id="licenseDisplay">বাংলাদেশ সরকার অনুমোদিত হজ্জ লাইসেন্স নং - ১৪৮৯</small>
+                </div>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-1 mt-3 mt-lg-0">
+                    <li class="nav-item"><a class="nav-link px-3 active" href="#home">হোম</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#about">পরিচিতি</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#packages">প্যাকেজসমূহ</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#contact">যোগাযোগ</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#location">ঠিকানা</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Announcement Bar -->
+    <div id="announcementBar" class="announcement-bar py-2 text-white overflow-hidden d-none">
+        <div class="container position-relative">
+            <div class="d-flex align-items-center">
+                <span class="announcement-badge bg-gold px-3 py-1 rounded-pill me-3 shadow-sm d-flex align-items-center gap-1">
+                    <i class="fa-solid fa-bullhorn text-dark animate-bell"></i> <span>ঘোষণা</span>
+                </span>
+                <div class="marquee-container flex-grow-1">
+                    <span id="announcementText" class="marquee-text"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section d-flex align-items-center justify-content-center text-center text-white position-relative" style="background-image: linear-gradient(rgba(15, 34, 63, 0.75), rgba(15, 34, 63, 0.85)), url('kaaba_hero.png');">
+        <div class="geometric-pattern-overlay"></div>
+        <div class="container py-5 position-relative z-2">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-8">
+                    <!-- Agent Photo -->
+                    <div class="agent-photo-wrapper mb-4 animate-fade-in">
+                        <img src="../static/agent_photo.jpeg" alt="মোঃ আব্দুল আউয়াল মজুমদার" class="agent-photo img-fluid shadow-lg border border-4 border-gold" id="agentPhotoDisplay">
+                    </div>
+                    <!-- Agent Details -->
+                    <h2 class="agent-name fw-bold mb-1" id="agentNameDisplay">মোঃ আব্দুল আউয়াল মজুমদার</h2>
+                    <p class="agent-title text-accent-gold fs-5 mb-4">হজ্জ ও ওমরাহ কনসালট্যান্ট (Hajj & Umrah Consultant)</p>
+                    
+                    <div class="divider-pattern mx-auto mb-4">
+                        <span class="line"></span>
+                        <i class="fa-solid fa-star-and-crescent text-accent-gold mx-2"></i>
+                        <span class="line"></span>
+                    </div>
+
+                    <h3 class="hero-slogan mb-4 Bengali-serif" background-color="white">বিশ্বস্ত ও আন্তরিক সেবার মাধ্যমে হজের পবিত্র সফর সম্পন্ন করুন</h3>
+                    
+                    <!-- Hero Buttons -->
+                    <div class="d-flex flex-wrap justify-content-center gap-3 hero-btns">
+                        <a href="#contact" class="btn btn-gold btn-lg px-4 py-3 shadow-sm rounded-pill fw-semibold"><i class="fa-solid fa-paper-plane me-2"></i> যোগাযোগ করুন</a>
+                        <a href="#packages" class="btn btn-outline-white btn-lg px-4 py-3 rounded-pill fw-semibold"><i class="fa-solid fa-layer-group me-2"></i> প্যাকেজ সমূহ দেখুন</a>
+                    </div>
+                    
+                    <!-- Call / WhatsApp Quick Buttons in Hero -->
+                    <div class="d-flex flex-wrap justify-content-center gap-3 mt-4 hero-call-btns">
+                        <a href="tel:01917713580" class="btn btn-success-custom px-4 py-2 rounded-pill d-inline-flex align-items-center gap-2 call-link-1">
+                            <i class="fa-solid fa-phone-flip"></i> কল করুন: <span class="phone-display-1">01917713580</span>
+                        </a>
+                        <a href="https://wa.me/8801917713580" target="_blank" class="btn btn-whatsapp-custom px-4 py-2 rounded-pill d-inline-flex align-items-center gap-2 wa-link-1">
+                            <i class="fa-brands fa-whatsapp"></i> WhatsApp 1: <span class="phone-display-1">01917713580</span>
+                        </a>
+                        <a href="https://wa.me/8801917713581" target="_blank" class="btn btn-whatsapp-custom px-4 py-2 rounded-pill d-inline-flex align-items-center gap-2 wa-link-2">
+                            <i class="fa-brands fa-whatsapp"></i> WhatsApp 2: <span class="phone-display-2">01917713581</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section py-5 bg-light-accent">
+        <div class="container py-4">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 position-relative">
+                    <div class="about-image-wrapper p-3 bg-white shadow rounded-4 position-relative">
+                        <img src="../static/masjid_nabawi.png" alt="মদিনা শরিফ" class="img-fluid rounded-3 shadow-sm w-100" style="object-fit: cover; height: 380px;">
+                        <div class="about-experience bg-gold text-dark p-3 rounded-3 shadow-md position-absolute bottom-0 end-0 m-4 d-flex align-items-center gap-2 border border-white">
+                            <i class="fa-solid fa-hands-praying fs-3 text-dark"></i>
+                            <div>
+                                <span class="fw-bold fs-4 d-block lh-1">দীর্ঘদিনের</span>
+                                <small class="text-uppercase fw-semibold">অভিজ্ঞতা ও বিশ্বস্ততা</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-text-content">
+                       
+                        <h2 class="section-title fw-bold mb-4 Bengali-serif">আমার পরিচিতি ও অঙ্গীকার</h2>
+                        <div class="about-text-body text-secondary lh-lg mb-4" id="aboutTextDisplay">
+                            <p class="mb-3 lead text-dark fw-medium">আসসালামু আলাইকুম ওয়া রাহমাতুল্লাহি ওয়া বারাকাতুহু।</p>
+                            <p class="mb-3">আমি মোঃ আব্দুল আউয়াল মজুমদার। বিগত বহু বছর ধরে আল কারীম হজ্জ কাফেলা-এর সঙ্গে নিষ্ঠার সঙ্গে যুক্ত আছি। এই দীর্ঘ সময়ে আল্লাহর অশেষ রহমতে বড় হজ ও ওমরাহ্ মিলিয়ে সফলভাবে প্রায় কয়েক হাজার হজযাত্রীকে পবিত্র মক্কা ও মদিনায় আল্লাহর ঘর জিয়ারতের সুযোগ করে দিতে পেরেছি। আলহামদুলিল্লাহ।</p>
+                            <p class="mb-3">আপনাদের অবগতির জন্য জানাচ্ছি যে, আমি ঢাকার নীলক্ষেত/নিউমার্কেট এলাকার একজন প্রতিষ্ঠিত ব্যবসায়ী এবং একজন লেখক। প্রতি বছর হজযাত্রীদের হজের মতো মহান ইবাদত সুন্দর, নিরাপদ ও সুশৃঙ্খলভাবে সম্পন্ন করতে সহযোগিতা করা এবং তাঁদের আন্তরিক দোয়া লাভ করাকে আমি আমার জীবনের অন্যতম সৌভাগ্য ও সম্মান বলে মনে করি। এই লক্ষ্যেই আমি আল কারীম হজ্জ কাফেলা-এর সঙ্গে দায়িত্বশীলভাবে কাজ করে আসছি।</p>
+                            <p class="mb-3">আমাদের হজ ও ওমরাহ্ প্যাকেজসমূহ সম্পর্কে বিস্তারিত জানতে এবং নিরাপদ, নির্ভরযোগ্য ও সফলভাবে হজ পালন করতে আগ্রহী সম্মানিত হজযাত্রীদের আমার সঙ্গে যোগাযোগ করার আন্তরিক আহ্বান জানাচ্ছি।</p>
+                            <p class="mb-3">ইনশাআল্লাহ, সর্বোচ্চ আন্তরিকতা, সততা ও দায়িত্বশীলতার সঙ্গে আপনাদের সেবা প্রদান করার সর্বাত্মক চেষ্টা করব।</p>
+                            <p class="mb-0 fw-semibold text-dark">আল্লাহ তাআলা আমাদের সকলের হজ ও ওমরাহ্ কবুল করুন। আমীন।<br>ধন্যবাদ।</p>
+                        </div>
+                        <a href="#contact" class="btn btn-green btn-lg px-4 py-2.5 rounded-pill shadow-sm"><i class="fa-solid fa-paper-plane me-2"></i> পরামর্শের জন্য মেসেজ দিন</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="packages-section py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="section-badge text-accent-green fw-semibold mb-2 d-inline-block">আমাদের সেবা সমূহ</span>
+                <h2 class="section-title fw-bold mb-3 Bengali-serif">হজ্জ ও ওমরাহ প্যাকেজ সমূহ</h2>
+                <p class="text-muted max-width-600 mx-auto">পরম যত্ন ও বিশ্বস্ততায় ডিজাইন করা আমাদের সাশ্রয়ী ও প্রিমিয়াম প্যাকেজ সমূহ থেকে আপনার পছন্দের প্যাকেজটি নির্বাচন করুন।</p>
+                <div class="divider-pattern mx-auto mt-3">
+                    <span class="line"></span>
+                    <i class="fa-solid fa-kaaba text-accent-green mx-2"></i>
+                    <span class="line"></span>
+                </div>
+                <div class="mt-4 mx-auto max-width-800 alert alert-warning border-0 shadow-sm rounded-4 text-start">
+                    <div class="d-flex align-items-start gap-3">
+                        <i class="fa-solid fa-circle-exclamation fs-4 text-dark mt-1"></i>
+                        <div>
+                            <h6 class="fw-bold mb-2">বিশেষ দ্রষ্টব্য</h6>
+                            <p class="mb-0">বেসরকারি ব্যবস্থাপনায় গমনেচ্ছু হজ্জযাত্রীদের জন্য সরকারের সকল নিয়মনীতি বলবৎ থাকবে।</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Buttons -->
+            <ul class="nav nav-pills justify-content-center mb-5 gap-3 border-0" id="packageTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active px-4 py-2.5 rounded-pill shadow-sm" id="hajj-tab" data-bs-toggle="tab" data-bs-target="#hajj-content" type="button" role="tab" aria-controls="hajj-content" aria-selected="true">
+                        <i class="fa-solid fa-kaaba me-2"></i> হজ্জ প্যাকেজ সমূহ
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link px-4 py-2.5 rounded-pill shadow-sm" id="umrah-tab" data-bs-toggle="tab" data-bs-target="#umrah-content" type="button" role="tab" aria-controls="umrah-content" aria-selected="false">
+                        <i class="fa-solid fa-mosque me-2"></i> ওমরাহ প্যাকেজ সমূহ
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content" id="packageTabsContent">
+                <!-- Hajj Packages Tab -->
+                <div class="tab-pane fade show active" id="hajj-content" role="tabpanel" aria-labelledby="hajj-tab">
+                    
+                    <!-- Intro Message -->
+                    <div class="row mb-5 justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm border-start border-gold border-4">
+                                <h4 class="fw-bold mb-3 text-accent-green Bengali-serif">সম্মানিত হজ্জযাত্রীবৃন্দ!</h4>
+                                <p class="lead text-dark fw-medium mb-3">আসসালামু আলাইকুম ওয়ারাহমাতুল্লাহ।</p>
+                                <p class="text-secondary lh-lg mb-3">সমস্ত প্রশংসা ও শুকর মহান আল্লাহ রাব্বুল আলামিনের জন্য। দরুদ ও সালাম সর্বশেষ নবী হযরত মুহাম্মদ (সা.) ও তাঁর পরিবারবর্গ এবং সাহাবীগণের উপর।</p>
+                                <p class="text-secondary lh-lg mb-3">হজ্জ একটি ইবাদত। আল্লাহর সন্তুষ্টির জন্য হজ্জ করা ফরজ। ইসলামের মৌলিক পাঁচটি ফরজের অন্যতম হলো সামর্থ্যবানদের জন্য হজ্জ পালন করা। আল্লাহর ঘরের দিকে হজ্জের উদ্দেশ্যে মুসলমানদের আধ্যাত্মিক রাজধানী মক্কার পথে আল্লাহর বান্দাদের সফর হলো হজ্জ।</p>
+                                <p class="text-secondary lh-lg mb-3">আল্লাহর বন্ধু হযরত ইব্রাহীম (আ.) ও তাঁর পরিবারের ত্যাগের স্মৃতি স্মরণ করে মুসলমানরা প্রতি বছর নির্ধারিত সময়ে আল্লাহর ঘর কাবা জিয়ারত করেন এবং তাওয়াফ, সাঈ, মিনা, আরাফাহ, মুযদালিফা, জামারাতে পাথর নিক্ষেপ, কোরবানি ও মাথার চুল কাটাসহ হজ্জের সকল বিধান পালন করেন।</p>
+                                <p class="text-secondary lh-lg mb-3"><strong>আল-কারীম হজ্জ কাফেলা (এম. আল-কারীম ট্যুরস এন্ড ট্রাভেলস)</strong> বাংলাদেশ মুজাহিদ কমিটি কর্তৃক পরিচালিত এবং সরকার ঘোষিত গাইডলাইন ও নীতিমালা অনুসারে হজ্জ পরিচালনা করে থাকে।</p>
+                                <p class="text-secondary lh-lg mb-0">নিচে ৩টি হজ্জ প্যাকেজের মূল্য ও সুযোগ-সুবিধা বর্ণনা করা হলো। আপনারা দেখে বুঝে সুবিধামতো প্যাকেজ নির্বাচন করে আমাদের সঙ্গে যোগাযোগ করতে পারবেন। <strong class="text-accent-green">ইনশাআল্লাহ।</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-4 justify-content-center align-items-start" id="hajjPackagesList">
+                        <!-- Dynamic Hajj Packages Rendered from JS -->
+                    </div>
+
+                    <!-- Disclaimer -->
+                    <div class="row mt-5 justify-content-center">
+                        <div class="col-lg-8 text-center">
+                            <div class="d-inline-flex align-items-center bg-gold-light px-4 py-3 rounded-pill border border-gold shadow-sm text-start">
+                                <i class="fa-solid fa-circle-info text-accent-gold fs-4 me-3"></i>
+                                <span class="text-dark fw-medium"><strong class="text-primary me-1">📌 বিশেষ দ্রষ্টব্য:</strong>বেসরকারি ব্যবস্থাপনায় গমনেচ্ছু হজ্জযাত্রীদের জন্য সরকারের সকল নিয়মনীতি বলবৎ থাকবে।</span>
+                                  
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Umrah Packages Tab -->
+                <div class="tab-pane fade" id="umrah-content" role="tabpanel" aria-labelledby="umrah-tab">
+                    <div class="row g-4 justify-content-center align-items-start" id="umrahPackagesList">
+                        <!-- Dynamic Umrah Packages Rendered from JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interest Registration Form -->
+    <section id="contact" class="registration-section py-5">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-9">
+                    <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                        <div class="row g-0">
+                            <!-- Form Info side -->
+                            <div class="col-md-5 bg-dark-blue text-white p-4 p-lg-5 d-flex flex-column justify-content-between position-relative" style="background-image: linear-gradient(rgba(98, 122, 159, 0.9), rgba(14, 22, 33, 0.95)), url('mina_tents.png'); background-size: cover; background-position: center;">
+                                <div class="geometric-pattern-overlay"></div>
+                                <div class="position-relative z-2">
+                                    <h3 class="fw-bold mb-4 Bengali-serif">আগ্রহ প্রকাশ ফর্ম</h3>
+                                    <p class="text-off-white lh-lg mb-4">পবিত্র হজ্জ বা ওমরাহ পালনে আগ্রহী হলে ফর্মটি পূরণ করে জমা দিন। আমাদের টিম দ্রুত আপনার সাথে যোগাযোগ করবে, ইনশাআল্লাহ।</p>
+                                    
+                                    <div class="d-flex flex-column gap-4 mt-5">
+                                        <div class="d-flex align-items-start gap-3">
+                                            <i class="fa-solid fa-user-tie fs-5 text-accent-gold mt-1"></i>
+                                            <div>
+                                                <small class="d-block text-accent-gold fw-semibold">হজ পরামর্শক</small>
+                                                <span class="fw-medium text-white" id="formAgentName">মোঃ আব্দুল আউয়াল মজুমদার</span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-start gap-3">
+                                            <i class="fa-solid fa-phone fs-5 text-accent-gold mt-1"></i>
+                                            <div>
+                                                <small class="d-block text-accent-gold fw-semibold">হোয়াটসঅ্যাপ/মোবাইল</small>
+                                                <span class="text-white phone-display-1">01917713580</span><br>
+                                                <span class="text-white phone-display-2">01917713581</span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-start gap-3">
+                                            <i class="fa-solid fa-envelope fs-5 text-accent-gold mt-1"></i>
+                                            <div>
+                                                <small class="d-block text-accent-gold fw-semibold">ইমেইল</small>
+                                                <span class="text-white email-display">abdulawalcvs@gmail.com</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-5 text-center position-relative z-2 border-top border-secondary pt-3">
+                                    <small class="text-light-gray">নিরাপদ ও সুশৃঙ্খল হজ্জ ও ওমরাহ এজেন্সি</small>
+                                </div>
+                            </div>
+
+                            <!-- Actual Form -->
+                            <div class="col-md-7 bg-white p-4 p-lg-5">
+                                <h3 class="fw-bold mb-4 text-dark Bengali-serif">আপনার তথ্য দিন</h3>
+                                <form id="interestForm" novalidate>
+                                    <div class="row g-3">
+                                        <div class="col-md-12">
+                                            <label for="fullName" class="form-label fw-semibold text-secondary">পূর্ণ নাম <span class="text-danger">*</span></label>
+                                            <div class="input-group">
+                                                <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-solid fa-user"></i></span>
+                                                <input type="text" class="form-control bg-light border-start-0 py-2.5" id="fullName" placeholder="আপনার পুরো নাম লিখুন" required>
+                                            </div>
+                                            <div class="invalid-feedback d-none" id="fullNameError">নাম আবশ্যক।</div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="phoneNumber" class="form-label fw-semibold text-secondary">ফোন নম্বর <span class="text-danger">*</span></label>
+                                            <div class="input-group">
+                                                <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-solid fa-phone"></i></span>
+                                                <input type="tel" class="form-control bg-light border-start-0 py-2.5" id="phoneNumber" placeholder="মোবাইল নম্বর" required>
+                                            </div>
+                                            <div class="invalid-feedback d-none" id="phoneNumberError">সঠিক ফোন নম্বর আবশ্যক।</div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="emailAddress" class="form-label fw-semibold text-secondary">ইমেইল <span class="text-danger">*</span></label>
+                                            <div class="input-group">
+                                                <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-solid fa-envelope"></i></span>
+                                                <input type="email" class="form-control bg-light border-start-0 py-2.5" id="emailAddress" placeholder="ইমেইল অ্যাড্রেস" required>
+                                            </div>
+                                            <div class="invalid-feedback d-none" id="emailAddressError">সঠিক ইমেইল এড্রেস আবশ্যক।</div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="preferredType" class="form-label fw-semibold text-secondary">পছন্দের ক্যাটাগরি <span class="text-danger">*</span></label>
+                                            <select class="form-select bg-light py-2.5" id="preferredType" required>
+                                                <option value="" disabled selected>নির্বাচন করুন</option>
+                                                <option value="Hajj">পবিত্র হজ্জ</option>
+                                                <option value="Umrah">পবিত্র ওমরাহ</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="preferredYear" class="form-label fw-semibold text-secondary">পছন্দের বছর <span class="text-danger">*</span></label>
+                                            <select class="form-select bg-light py-2.5" id="preferredYear" required>
+                                                <option value="" disabled selected>নির্বাচন করুন</option>
+                                                <option value="2027">২০২৭ (হজ্জ নিবন্ধন চলছে)</option>
+                                                <option value="2028">২০২৮</option>
+                                                <option value="2029">২০২৯</option>
+                                            </select>
+                                            <div class="invalid-feedback d-none" id="preferredYearError">বছর আবশ্যক।</div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="preferredPackage" class="form-label fw-semibold text-secondary">পছন্দের প্যাকেজ</label>
+                                            <select class="form-select bg-light py-2.5" id="preferredPackage">
+                                                <option value="">কোনো নির্দিষ্ট প্যাকেজ নেই</option>
+                                                <!-- Dynamic options from JS packages -->
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="city" class="form-label fw-semibold text-secondary">জেলা / শহর</label>
+                                            <input type="text" class="form-control bg-light py-2.5" id="city" placeholder="যেমন: ঢাকা, কুমিল্লা">
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <label for="message" class="form-label fw-semibold text-secondary">অতিরিক্ত জিজ্ঞাসা / বার্তা</label>
+                                            <textarea class="form-control bg-light" id="message" rows="3" placeholder="আপনার কোনো বিশেষ চাহিদা বা জানার থাকলে এখানে লিখুন..."></textarea>
+                                        </div>
+
+                                        <div class="col-md-12 my-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input check-accent" type="checkbox" id="contactAgreement" required checked>
+                                                <label class="form-check-label text-muted small" for="contactAgreement">
+                                                    আমি হজ্জ/ওমরাহ সংক্রান্ত তথ্যের জন্য আমার সাথে যোগাযোগের সম্মতি দিচ্ছি। *
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <!-- Success / Error General Banner -->
+                                            <div class="alert alert-success d-none mb-3" id="formSuccessMessage">
+                                                <i class="fa-solid fa-circle-check me-2"></i> আপনার তথ্য সফলভাবে জমা দেওয়া হয়েছে। আমরা খুব শীঘ্রই আপনার সাথে যোগাযোগ করব, ইনশাআল্লাহ।
+                                            </div>
+                                            <div class="alert alert-danger d-none mb-3" id="formGeneralError">
+                                                <i class="fa-solid fa-circle-xmark me-2"></i> অনুগ্রহ করে সকল আবশ্যক ক্ষেত্র (*) সঠিকভাবে পূরণ করুন।
+                                            </div>
+
+                                            <button type="submit" class="btn btn-green btn-lg w-100 py-3 rounded-pill fw-semibold shadow-sm" id="submitFormBtn">
+                                                <span class="spinner-border spinner-border-sm d-none me-2" role="status" id="submitSpinner"></span>
+                                                <i class="fa-solid fa-paper-plane me-2" id="submitIcon"></i> তথ্য জমা দিন
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing section: Mission & Pledge -->
+    <section class="pledge-section py-5 text-white position-relative" style="background-image: linear-gradient(rgba(15, 34, 63, 0.92), rgba(13, 92, 58, 0.95)), url('arafat_pilgrims.png'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <div class="geometric-pattern-overlay"></div>
+        <div class="container py-4 position-relative z-2">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8">
+                    <span class="text-accent-gold fw-semibold mb-2 d-inline-block text-uppercase tracking-wider">আমাদের মিশন ও কল্যাণমূলক কর্মকাণ্ড</span>
+                    <h2 class="fw-bold mb-3 Bengali-serif text-white">আমাদের লক্ষ্য ও অঙ্গীকার</h2>
+                    <div class="divider-pattern mx-auto">
+                        <span class="line bg-gold"></span>
+                        <i class="fa-solid fa-star-and-crescent text-accent-gold mx-2"></i>
+                        <span class="line bg-gold"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 align-items-stretch">
+                <!-- Promise Card -->
+                <div class="col-lg-6">
+                    <div class="h-100 p-4 p-md-5 rounded-4 bg-white-opacity shadow-sm d-flex flex-column justify-content-center">
+                        <i class="fa-solid fa-shield-halved fs-1 text-accent-gold mb-4"></i>
+                        <h4 class="fw-bold text-white mb-3 Bengali-serif">মূল লক্ষ্য ও উদ্দেশ্য</h4>
+                        <p class="lh-lg text-light-gray mb-0">
+                            আল কারীম হজ্ব কাফেলা-এর মূল লক্ষ্য হলো মহান আল্লাহর সন্তুষ্টি অর্জনের উদ্দেশ্যে তাঁর সম্মানিত মেহমান—হজযাত্রীদের সর্বোচ্চ আন্তরিকতা, সততা ও দায়িত্বশীলতার সঙ্গে সেবা প্রদান করা।
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Charity Distribution Card -->
+                <div class="col-lg-6">
+                    <div class="h-100 p-4 p-md-5 rounded-4 bg-white-opacity shadow-sm">
+                        <i class="fa-solid fa-hand-holding-heart fs-1 text-accent-gold mb-4"></i>
+                        <h4 class="fw-bold text-white mb-3 Bengali-serif">লভ্যাংশ যে সকল খাতে ব্যয় করা হবে</h4>
+                        <p class="text-light-gray small mb-4">আল্লাহর মেহমানদের খেদমত সম্পন্ন করার পর প্রতিষ্ঠানের বৈধ ও অবশিষ্ট লভ্যাংশ নিম্নোক্ত দীনি ও কল্যাণমূলক কার্যক্রমে ব্যয় করা হবে। ইনশাআল্লাহ, এসব মহৎ কাজে আপনাদের অংশগ্রহণও সদকায়ে জারিয়া হিসেবে পরকালে কল্যাণ বয়ে আনবে।</p>
+                        
+                        <ul class="list-unstyled d-flex flex-column gap-3 text-light-gray">
+                            <li class="d-flex align-items-start gap-2">
+                                <span class="badge bg-gold text-dark rounded-circle p-1 px-2.5 mt-1">১</span>
+                                <span><strong>বাংলাদেশ কুরআন শিক্ষা বোর্ড</strong>-এর মাধ্যমে দেশের ৬৮ হাজার গ্রামে ৬৮ হাজার কওমি মাদ্রাসা প্রতিষ্ঠা ও পরিচালনার কার্যক্রমে সহায়তা।</span>
+                            </li>
+                            <li class="d-flex align-items-start gap-2">
+                                <span class="badge bg-gold text-dark rounded-circle p-1 px-2.5 mt-1">২</span>
+                                <span>দেশে দীন প্রতিষ্ঠা ও ইসলামী দাওয়াতি কার্যক্রম পরিচালনাকারী সংগঠনসমূহের বিভিন্ন কার্যক্রমে সহযোগিতা।</span>
+                            </li>
+                            <li class="d-flex align-items-start gap-2">
+                                <span class="badge bg-gold text-dark rounded-circle p-1 px-2.5 mt-1">৩</span>
+                                <span><strong>বাংলাদেশ মুজাহিদ কমিটি</strong>-এর দীনি কার্যক্রম ও ইসলাম প্রচারমূলক কর্মকাণ্ডে সহায়তা।</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Maps & Addresses Section -->
+    <section id="location" class="location-section py-5 bg-white">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="section-badge text-accent-green fw-semibold mb-2 d-inline-block">আমাদের অবস্থান</span>
+                <h2 class="section-title fw-bold mb-3 Bengali-serif text-dark">অফিস ও এজেন্টের ঠিকানা</h2>
+                <p class="text-muted max-width-600 mx-auto">সরাসরি আলোচনার জন্য আমাদের অফিস বা এজেন্টের সাথে দেখা করতে পারেন। নিচে মানচিত্র দেওয়া হলো।</p>
+                <div class="divider-pattern mx-auto mt-3">
+                    <span class="line"></span>
+                    <i class="fa-solid fa-map-location-dot text-accent-green mx-2"></i>
+                    <span class="line"></span>
+                </div>
+            </div>
+
+            <div class="row g-4 align-items-stretch">
+                <!-- Location 1: Agent Office -->
+                <div class="col-lg-6">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                        <div class="p-4 bg-light-accent border-bottom border-light">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="bg-gold-light p-3 rounded-3 text-dark-blue">
+                                    <i class="fa-solid fa-user-tie fs-3"></i>
+                                </div>
+                                <div>
+                                    <h4 class="fw-bold mb-1 fs-5 text-dark-blue Bengali-serif">পরামর্শক ও এজেন্ট অফিস</h4>
+                                    <p class="text-muted small mb-0">মোঃ আব্দুল আউয়াল মজুমদার</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 flex-grow-1">
+                            <ul class="list-unstyled d-flex flex-column gap-3 text-secondary">
+                                <li class="d-flex align-items-start gap-2.5">
+                                    <i class="fa-solid fa-location-dot text-accent-gold mt-1"></i>
+                                    <span>২৭ নতুন পল্টন লাইন, আজিমপুর, ঢাকা-১২০৫</span>
+                                </li>
+                                <li class="d-flex align-items-start gap-2.5">
+                                    <i class="fa-solid fa-phone text-accent-gold mt-1"></i>
+                                    <span>০১৯১৭৭১৩৫৮০, ০১৯১৭৭১৩৫৮১</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="map-container overflow-hidden ratio ratio-21x9">
+                            <!-- Embedded Google Map centered near New Paltan Line Azimpur -->
+                          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d228.28178515295875!2d90.37979027263174!3d23.729237489427973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8ce77968b73%3A0x4c293bf8e946ac35!2sMasjid%20E%20Ali%20Mosque!5e0!3m2!1sen!2sbd!4v1783373581342!5m2!1sen!2sbd" width="300" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location 2: Company Main Office -->
+                <div class="col-lg-6">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                        <div class="p-4 bg-light-accent border-bottom border-light">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="bg-gold-light p-3 rounded-3 text-dark-blue">
+                                    <i class="fa-solid fa-building-flag fs-3"></i>
+                                </div>
+                                <div>
+                                    <h4 class="fw-bold mb-1 fs-5 text-dark-blue Bengali-serif">মূল কাফেলা অফিস</h4>
+                                    <p class="text-muted small mb-0">আল কারীম হজ্জ কাফেলা</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 flex-grow-1">
+                            <ul class="list-unstyled d-flex flex-column gap-3 text-secondary">
+                                <li class="d-flex align-items-start gap-2.5">
+                                    <i class="fa-solid fa-location-dot text-accent-gold mt-1"></i>
+                                    <span>৬০/১ পুরানা পল্টন (৩য় তলা), ঢাকা-১০০০</span>
+                                </li>
+                                <li class="d-flex align-items-start gap-2.5">
+                                    <i class="fa-solid fa-address-card text-accent-gold mt-1"></i>
+                                    <span>বাংলাদেশ সরকার লাইসেন্স নম্বর: ১৪৮৯</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="map-container overflow-hidden ratio ratio-21x9">
+                            <!-- Embedded Google Map centered near Purana Paltan -->
+                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.4872542282883!2d90.40831167511449!3d23.729997878684323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8f7b2d4461d%3A0xb2154c15c44c3a0a!2s60%2C%201%20Purana%20Paltan%2C%20Dhaka%201000!5e0!3m2!1sen!2sbd!4v1783373837480!5m2!1sen!2sbd" width="300" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark-blue text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <!-- Branding -->
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center gap-2.5 mb-3">
+                        <img src="../static/logo.jpg" alt="Logo" class="footer-logo rounded-circle border border-gold" style="width: 50px; height: 50px; object-fit: cover;">
+                        <div>
+                            <h4 class="mb-0 fw-bold Bengali-serif text-white fs-5">আল কারীম হজ্জ কাফেলা</h4>
+                            <small class="text-accent-gold">লাইসেন্স নম্বর: ১৪৮৯</small>
+                        </div>
+                    </div>
+                    <p class="text-light-gray fs-6 lh-lg mt-3">সর্বোচ্চ আন্তরিকতা, সততা ও দায়িত্বশীলতার সাথে আল্লাহর মেহমানদের হজ ও ওমরাহ পালনে আমরা প্রতিশ্রুতিবদ্ধ।</p>
+                    <div class="d-flex gap-3 mt-4 footer-socials">
+                        <a href="https://wa.me/8801917713580" target="_blank" class="social-icon bg-light-navy text-accent-gold"><i class="fa-brands fa-whatsapp animate-bounce-soft"></i></a>
+                        <a href="mailto:abdulawalcvs@gmail.com" class="social-icon bg-light-navy text-accent-gold"><i class="fa-regular fa-envelope"></i></a>
+                        <a href="#" class="social-icon bg-light-navy text-accent-gold"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-md-6 col-lg-3 offset-lg-1">
+                    <h5 class="footer-title fw-bold mb-4 Bengali-serif text-accent-gold">নেভিগেশন</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2.5 footer-links">
+                        <li><a href="#home" class="text-light-gray text-decoration-none"><i class="fa-solid fa-chevron-right text-accent-gold me-2 small"></i> হোম</a></li>
+                        <li><a href="#about" class="text-light-gray text-decoration-none"><i class="fa-solid fa-chevron-right text-accent-gold me-2 small"></i> পরিচিতি</a></li>
+                        <li><a href="#packages" class="text-light-gray text-decoration-none"><i class="fa-solid fa-chevron-right text-accent-gold me-2 small"></i> প্যাকেজ সমূহ</a></li>
+                        <li><a href="#contact" class="text-light-gray text-decoration-none"><i class="fa-solid fa-chevron-right text-accent-gold me-2 small"></i> যোগাযোগ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacts -->
+                <div class="col-md-6 col-lg-4">
+                    <h5 class="footer-title fw-bold mb-4 Bengali-serif text-accent-gold">যোগাযোগের ঠিকানা</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-3 text-light-gray footer-contact">
+                        <li class="d-flex align-items-start gap-2.5">
+                            <i class="fa-solid fa-phone text-accent-gold mt-1"></i>
+                            <div>
+                                <span class="d-block phone-display-1">01917713580</span>
+                                <span class="d-block phone-display-2">01917713581</span>
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-start gap-2.5">
+                            <i class="fa-solid fa-envelope text-accent-gold mt-1"></i>
+                            <span class="email-display">abdulawalcvs@gmail.com</span>
+                        </li>
+                        <li class="d-flex align-items-start gap-2.5">
+                            <i class="fa-solid fa-location-dot text-accent-gold mt-1"></i>
+                            <span>এজেন্ট অফিস: ২৭ নতুন পল্টন লাইন, আজিমপুর, ঢাকা-১২০৫</span>
+                        </li>
+                        <li class="d-flex align-items-start gap-2.5">
+                            <i class="fa-solid fa-building text-accent-gold mt-1"></i>
+                            <span>প্রধান অফিস: ৬০/১ পুরানা পল্টন (৩য় তলা), ঢাকা-১০০০</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="border-top border-light-navy pt-4 text-center text-light-gray small d-flex flex-wrap justify-content-between align-items-center gap-2">
+                <p class="mb-0">© 2027 আল কারীম হজ্জ কাফেলা (Al Karim Hajj Kafela). সর্বস্বত্ব সংরক্ষিত।</p>
+              
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Actions (Bottom Right) -->
+    <div class="floating-actions d-flex flex-column gap-2">
+        <!-- Floating WhatsApp 1 -->
+        <a href="https://wa.me/8801917713580" target="_blank" class="wa-float-btn shadow-lg wa-link-1" title="WhatsApp 1: 01917713580">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="label">WhatsApp 1: <span class="phone-display-1">01917713580</span></span>
+        </a>
+        <!-- Floating WhatsApp 2 -->
+        <a href="https://wa.me/8801917713581" target="_blank" class="wa-float-btn bg-success-custom shadow-lg wa-link-2" title="WhatsApp 2: 01917713581">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="label">WhatsApp 2: <span class="phone-display-2">01917713581</span></span>
+        </a>
+        <!-- Floating Gmail -->
+        <a href="mailto:abdulawalcvs@gmail.com" class="gmail-float-btn shadow-lg gmail-link" title="Compose Email">
+            <i class="fa-solid fa-envelope"></i>
+            <span class="label">ইমেইল করুন</span>
+        </a>
+    </div>
+
+    <!-- Admin Panel Dashboard Overlay -->
+    <div class="admin-overlay" id="adminDashboardOverlay">
+        <div class="admin-sidebar shadow-lg bg-white">
+            <div class="d-flex justify-content-between align-items-center p-3 border-bottom bg-dark-blue text-white">
+                <h5 class="mb-0 fw-bold"><i class="fa-solid fa-user-shield me-2 text-accent-gold"></i> অ্যাডমিন কন্ট্রোল প্যানেল</h5>
+                <button type="button" class="btn-close btn-close-white" id="closeAdminBtn"></button>
+            </div>
+            
+            <!-- Admin Login Section -->
+            <div class="admin-login-wrapper p-4" id="adminLoginWrapper">
+                <h5 class="fw-bold mb-3 text-dark text-center">অ্যাডমিন প্রবেশদ্বার</h5>
+                <div class="mb-3">
+                    <label for="adminUsername" class="form-label text-muted">ব্যবহারকারী নাম (Username)</label>
+                    <input type="text" class="form-control" id="adminUsername" placeholder="admin">
+                </div>
+                <div class="mb-3">
+                    <label for="adminPassword" class="form-label text-muted">পাসওয়ার্ড (Password)</label>
+                    <input type="password" class="form-control" id="adminPassword" placeholder="••••••••">
+                </div>
+                <div class="alert alert-danger d-none" id="adminLoginError">সঠিক নাম ও পাসওয়ার্ড দিন!</div>
+                <button type="button" class="btn btn-green w-100 py-2.5 fw-semibold" id="loginSubmitBtn">লগইন করুন</button>
+                
+            </div>
+
+            <!-- Admin Real Controls (Hidden by default) -->
+            <div class="admin-controls-wrapper d-none overflow-y-auto" id="adminControlsWrapper">
+                <!-- Nav Tabs for controls -->
+                <div class="px-3 pt-3 bg-light">
+                    <ul class="nav nav-tabs border-0" id="adminTab" role="tablist">
+                        <li class="nav-item w-100 mb-1">
+                            <button class="nav-link w-100 text-start active border-0 py-2 px-3 rounded" id="admin-general-tab" data-bs-toggle="tab" data-bs-target="#admin-general" type="button" role="tab"><i class="fa-solid fa-gears me-2 text-accent-gold"></i> সাধারণ সেটিংস</button>
+                        </li>
+                        <li class="nav-item w-100 mb-1">
+                            <button class="nav-link w-100 text-start border-0 py-2 px-3 rounded" id="admin-packages-tab" data-bs-toggle="tab" data-bs-target="#admin-packages" type="button" role="tab"><i class="fa-solid fa-kaaba me-2 text-accent-gold"></i> প্যাকেজ ম্যানেজমেন্ট</button>
+                        </li>
+                        <li class="nav-item w-100 mb-1">
+                            <button class="nav-link w-100 text-start border-0 py-2 px-3 rounded" id="admin-gallery-tab" data-bs-toggle="tab" data-bs-target="#admin-gallery" type="button" role="tab"><i class="fa-solid fa-image me-2 text-accent-gold"></i> ছবি ও লোগো</button>
+                        </li>
+                        <li class="nav-item w-100 mb-1 position-relative">
+                            <button class="nav-link w-100 text-start border-0 py-2 px-3 rounded" id="admin-inquiries-tab" data-bs-toggle="tab" data-bs-target="#admin-inquiries" type="button" role="tab">
+                                <i class="fa-solid fa-envelope-open-text me-2 text-accent-gold"></i> ইনকোয়ারি সমূহ 
+                                <span class="badge bg-danger ms-2" id="unreadInquiriesBadge">0</span>
+                            </button>
+                        </li>
+                    </ul>
+                    <hr class="my-2">
+                    <button class="btn btn-outline-danger btn-sm w-100 mb-3" id="adminLogoutBtn"><i class="fa-solid fa-power-off me-1"></i> লগআউট</button>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="tab-content p-3" id="adminTabContent">
+                    
+                    <!-- General Settings -->
+                    <div class="tab-pane fade show active" id="admin-general" role="tabpanel">
+                        <h6 class="fw-bold border-bottom pb-2 mb-3">কোম্পানি ও কন্টাক্ট সেটিংস</h6>
+                        
+                        <div class="mb-3">
+                            <label class="form-label text-muted small">এজেন্সি নাম</label>
+                            <input type="text" class="form-control" id="editAgencyName">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-muted small">হজ লাইসেন্স বিবরণ</label>
+                            <input type="text" class="form-control" id="editLicenseText">
+                        </div>
+
+                        <div class="row g-2">
+                            <div class="col-6 mb-3">
+                                <label class="form-label text-muted small">মোবাইল ১ (হোয়াটসঅ্যাপ ১)</label>
+                                <input type="text" class="form-control" id="editPhone1">
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label class="form-label text-muted small">মোবাইল ২ (হোয়াটসঅ্যাপ ২)</label>
+                                <input type="text" class="form-control" id="editPhone2">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-muted small">ইমেইল এড্রেস</label>
+                            <input type="email" class="form-control" id="editEmail">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-muted small">ঘোষণা / অ্যানাউন্সমেন্ট বার (খালি রাখলে হাইড হবে)</label>
+                            <textarea class="form-control" id="editAnnouncementText" rows="2"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-muted small">আমাদের পরিচিতি (Bengali About Section)</label>
+                            <textarea class="form-control" id="editAboutText" rows="8"></textarea>
+                        </div>
+
+                        <button class="btn btn-green w-100" id="saveGeneralSettings">সংরক্ষণ করুন</button>
+                    </div>
+
+                    <!-- Package Management -->
+                    <div class="tab-pane fade" id="admin-packages" role="tabpanel">
+                        <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
+                            <h6 class="fw-bold mb-0">প্যাকেজ সমূহ</h6>
+                            <button class="btn btn-green btn-sm" id="createNewPackageBtn"><i class="fa-solid fa-plus"></i> নতুন প্যাকেজ</button>
+                        </div>
+
+                        <!-- Add/Edit Package Form (Toggled inside tab) -->
+                        <div id="packageFormContainer" class="d-none bg-light p-3 rounded mb-3 border">
+                            <h6 class="fw-bold mb-3 text-accent-green" id="packageFormTitle">প্যাকেজ যোগ করুন</h6>
+                            <input type="hidden" id="editPackageId">
+                            <div class="mb-2">
+                                <label class="small text-muted">প্যাকেজ টাইপ</label>
+                                <select class="form-select form-select-sm" id="packageType">
+                                    <option value="Hajj">হজ্জ প্যাকেজ</option>
+                                    <option value="Umrah">ওমরাহ প্যাকেজ</option>
+                                </select>
+                            </div>
+                            <div class="mb-2">
+                                <label class="small text-muted">প্যাকেজের নাম</label>
+                                <input type="text" class="form-control form-control-sm" id="packageName" placeholder="যেমন: ইকোনমি প্যাকেজ">
+                            </div>
+                            <div class="mb-2">
+                                <label class="small text-muted">প্যাকেজ মূল্য (যেমন: ৭,৫০,০০০ টাকা)</label>
+                                <input type="text" class="form-control form-control-sm" id="packagePrice" placeholder="৭,৫০,০০০ টাকা">
+                            </div>
+                            <div class="row g-2">
+                                <div class="col-6 mb-2">
+                                    <label class="small text-muted">মেয়াদ (দিন)</label>
+                                    <input type="text" class="form-control form-control-sm" id="packageDuration" placeholder="৩০-৪০ দিন">
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <label class="small text-muted">কুরবানি (যেমন: অন্তর্ভুক্ত বা আলাদা)</label>
+                                    <input type="text" class="form-control form-control-sm" id="packageQurbani" placeholder="আলাদা">
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <label class="small text-muted">মক্কা হোটেল ও দূরত্ব</label>
+                                <input type="text" class="form-control form-control-sm" id="packageMakkahHotel" placeholder="মিসফালাহ (দূরত্ব: ৮০০ মিটার)">
+                            </div>
+                            <div class="mb-2">
+                                <label class="small text-muted">মদিনা হোটেল ও দূরত্ব</label>
+                                <input type="text" class="form-control form-control-sm" id="packageMadinahHotel" placeholder="মারকাজিয়ার বাইরে (দূরত্ব: ৪০০ মিটার)">
+                            </div>
+                            <div class="mb-2">
+                                <label class="small text-muted">পরিবহন ব্যবস্থা</label>
+                                <input type="text" class="form-control form-control-sm" id="packageTransport" placeholder="এসি লাক্সারি বাস">
+                            </div>
+                            <div class="mb-2">
+                                <label class="small text-muted">খাবার ও অন্যান্য</label>
+                                <input type="text" class="form-control form-control-sm" id="packageMeals" placeholder="৩ বেলা বাঙালি খাবার">
+                            </div>
+                            <div class="mb-2">
+                                <label class="small text-muted">পিডিএফ লিংক (যদি থাকে, না থাকলে খালি রাখুন)</label>
+                                <input type="text" class="form-control form-control-sm" id="packagePdfUrl" placeholder="https://example.com/brochure.pdf">
+                            </div>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-success btn-sm w-50" id="savePackageSubmit">সেভ</button>
+                                <button class="btn btn-secondary btn-sm w-50" id="cancelPackageEdit">বাতিল</button>
+                            </div>
+                        </div>
+
+                        <!-- List of current packages -->
+                        <div id="adminPackagesListContainer">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Media (Agent Photo & Logo) -->
+                    <div class="tab-pane fade" id="admin-gallery" role="tabpanel">
+                        <h6 class="fw-bold border-bottom pb-2 mb-3">ইমেজ ম্যানেজমেন্ট</h6>
+
+                        <div class="mb-4">
+                            <label class="form-label text-muted small">এজেন্ট প্রোফাইল ফটো ইউআরএল বা বেস৬৪</label>
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="agentPhotoUrl" placeholder="static/agent_photo.jpeg">
+                                <button class="btn btn-outline-secondary" type="button" id="uploadAgentPhotoTrigger"><i class="fa-solid fa-upload"></i></button>
+                            </div>
+                            <input type="file" id="agentPhotoFileInput" class="d-none" accept="image/*">
+                            <small class="text-muted d-block">ব্রাউজার থেকে ফাইল সিলেক্ট করলে এটি বেস৬৪ কনভার্ট করে লোড করবে।</small>
+                        </div>
+
+                        <div class="mb-2">
+                            <label class="form-label text-muted small">লোগো ইমেজ ইউআরএল বা বেস৬৪</label>
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="agencyLogoUrl" placeholder="static/logo.jpg">
+                                <button class="btn btn-outline-secondary" type="button" id="uploadLogoTrigger"><i class="fa-solid fa-upload"></i></button>
+                            </div>
+                            <input type="file" id="logoFileInput" class="d-none" accept="image/*">
+                        </div>
+                    </div>
+
+                    <!-- Inquiries Management -->
+                    <div class="tab-pane fade" id="admin-inquiries" role="tabpanel">
+                        <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
+                            <h6 class="fw-bold mb-0">গ্রাহকদের আগ্রহ প্রকাশ তালিকা</h6>
+                            <button class="btn btn-outline-danger btn-sm" id="clearAllInquiriesBtn"><i class="fa-solid fa-trash-can"></i> সব মুছুন</button>
+                        </div>
+                        
+                        <div id="adminInquiriesList" class="d-flex flex-column gap-3">
+                            <!-- Dynamically listed user submissions -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- EmailJS SDK: required for the contact form to email submissions.
+         See EMAIL_SETUP.md for how to get your Public Key / Service ID / Template ID. -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- The bundled script will be loaded here automatically by Webpack -->
+</body>
+</html>
