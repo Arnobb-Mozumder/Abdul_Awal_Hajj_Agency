@@ -280,6 +280,35 @@ async function fetchInquiriesFromServer() {
 }
 
 function updateSiteUI() {
+    // Dynamic Agent Photo and Agency Logo
+    const agentPhotoDisplay = document.getElementById("agentPhotoDisplay");
+    if (agentPhotoDisplay && dbConfig.agentPhoto) {
+        let src = dbConfig.agentPhoto;
+        if (!src.startsWith("/") && !src.startsWith("data:") && !src.startsWith("http")) {
+            src = "/static/" + src;
+        }
+        agentPhotoDisplay.src = src;
+    }
+
+    const logoDisplay = document.getElementById("logoDisplay");
+    if (logoDisplay && dbConfig.agencyLogo) {
+        let src = dbConfig.agencyLogo;
+        if (!src.startsWith("/") && !src.startsWith("data:") && !src.startsWith("http")) {
+            src = "/static/" + src;
+        }
+        logoDisplay.src = src;
+    }
+
+    document.querySelectorAll(".footer-logo").forEach(el => {
+        if (dbConfig.agencyLogo) {
+            let src = dbConfig.agencyLogo;
+            if (!src.startsWith("/") && !src.startsWith("data:") && !src.startsWith("http")) {
+                src = "/static/" + src;
+            }
+            el.src = src;
+        }
+    });
+
     const aboutTextEl = document.getElementById("aboutTextDisplay");
     if (aboutTextEl && dbConfig.aboutText) {
         // Convert newlines to paragraphs
@@ -924,6 +953,42 @@ document.getElementById("saveGeneralSettings").addEventListener("click", async f
         saveDB("hajj_agency_config", dbConfig);
         updateSiteUI();
         alert("সার্ভার অফলাইন! সেটিংস শুধুমাত্র স্থানীয়ভাবে সেভ করা হয়েছে।");
+    }
+});
+
+// Save Gallery Settings (Photos & Logos)
+document.getElementById("saveGallerySettings").addEventListener("click", async function() {
+    // Merge existing config with the new image values
+    const updated = {
+        ...dbConfig,
+        agentPhoto: document.getElementById("agentPhotoUrl").value,
+        agencyLogo: document.getElementById("agencyLogoUrl").value
+    };
+
+    try {
+        const response = await fetch('/api/config', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${adminToken}`
+            },
+            body: JSON.stringify(updated)
+        });
+        if (response.ok) {
+            dbConfig = await response.json();
+            saveDB("hajj_agency_config", dbConfig);
+            updateSiteUI();
+            alert("ছবি ও লোগো সফলভাবে আপডেট করা হয়েছে!");
+        } else {
+            const data = await response.json();
+            alert(data.error || "আপডেট ব্যর্থ হয়েছে।");
+        }
+    } catch (err) {
+        console.error("Failed to save config, saving locally:", err);
+        dbConfig = updated;
+        saveDB("hajj_agency_config", dbConfig);
+        updateSiteUI();
+        alert("সার্ভার অফলাইন! ছবি ও লোগো শুধুমাত্র স্থানীয়ভাবে সেভ করা হয়েছে।");
     }
 });
 
