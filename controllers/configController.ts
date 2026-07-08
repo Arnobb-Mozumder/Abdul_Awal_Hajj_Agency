@@ -12,7 +12,10 @@ export const getConfig = async (req: Request, res: Response) => {
         const defaultData = localDb.getConfig();
         config = await Config.create(defaultData);
       }
-      return res.json(config);
+      // Merge with localDb.getConfig() to ensure any newly added default values are present
+      const defaultData = localDb.getConfig();
+      const mergedConfig = { ...defaultData, ...(config.toObject ? config.toObject() : config) };
+      return res.json(mergedConfig);
     } else {
       // Local fallback
       const config = localDb.getConfig();

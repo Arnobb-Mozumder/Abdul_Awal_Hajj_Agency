@@ -229,8 +229,10 @@ export const localDb = {
     return { ...DEFAULT_CONFIG, ...config };
   },
   saveConfig(config: any) {
-    writeJSON(CONFIG_FILE, config);
-    return config;
+    const existing = localDb.getConfig();
+    const merged = { ...existing, ...config };
+    writeJSON(CONFIG_FILE, merged);
+    return merged;
   },
 
   // Packages
